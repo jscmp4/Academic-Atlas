@@ -1,0 +1,101 @@
+# Research Landscape Mapping - Default Configuration Template
+# Copy this to config.yaml and modify as needed.
+# If config.yaml gets corrupted, restore from this file.
+
+version: 1
+
+topic: "Online community user behavior research"
+
+# Each stream represents a research direction with its own keywords
+# citation_min per stream overrides the global filters.citation_min
+search_streams:
+  - name: "Online Community Research"
+    keywords:
+      - "online community AND (user behavior OR participation OR engagement)"
+      - "virtual community AND (social interaction OR group dynamics)"
+      - "social media AND (community formation OR collective action)"
+      - "online platform AND (user-generated content OR peer production)"
+      - "digital community AND (norms OR governance OR moderation)"
+    citation_min: 50
+
+  - name: "Computational Social Science Methods"
+    keywords:
+      - "computational social science AND (social media OR online)"
+      - "social network analysis AND (online community OR platform)"
+      - "topic modeling AND (social media OR user-generated content)"
+      - "sentiment analysis AND (online OR community OR social media)"
+      - "text mining AND (social media OR online discourse)"
+    citation_min: 50
+
+  - name: "AI Agent Behavior & Emergent Culture"
+    keywords:
+      - "AI agent AND (social interaction OR communication OR community)"
+      - "LLM agent AND (behavior OR emergent OR autonomous)"
+      - "multi-agent AND (social simulation OR society OR culture)"
+      - "generative agent AND (social OR interaction)"
+      - "agent-based AND (social simulation OR online community)"
+    citation_min: 10  # Newer field, lower threshold
+
+# Journal lists grouped by category
+# Names must match OpenAlex source display_name (searched fuzzy)
+journals:
+  IS_core:
+    - "MIS Quarterly"
+    - "Information Systems Research"
+    - "Journal of Management Information Systems"
+    - "Journal of the Association for Information Systems"
+    - "European Journal of Information Systems"
+
+  IS_extended:
+    - "Information Systems Journal"
+    - "Information & Management"
+    - "Journal of Strategic Information Systems"
+    - "Decision Support Systems"
+    - "Journal of Information Technology"
+
+  management:
+    - "Management Science"
+    - "Organization Science"
+
+  CS_HCI:
+    - "Computers in Human Behavior"
+
+  # Note: Conference proceedings (CHI, CSCW, ICIS, AAAI, ACL) use
+  # doc_type "proceedings-article" - add them to a separate stream
+  # or adjust doc_type filter if needed.
+
+# Global filter defaults (stream-level citation_min overrides this)
+filters:
+  citation_min: 50
+  year_min: 2010
+  year_max: 2026
+  doc_type: "article"
+
+# Embedding model: minilm / mpnet / specter2
+embedding:
+  model: "minilm"
+
+# Clustering parameters (exposed for tuning without code changes)
+clustering:
+  method: "bertopic"           # bertopic / kmeans
+  n_neighbors: 15              # UMAP: higher = more global structure
+  n_components_cluster: 5      # UMAP dims for clustering
+  n_components_viz: 2          # UMAP dims for visualization
+  min_dist_cluster: 0.0        # UMAP: 0 = tighter clusters
+  min_dist_viz: 0.1            # UMAP: slightly spread for readability
+  min_cluster_size: 10         # HDBSCAN: minimum papers per cluster
+  min_samples: 5               # HDBSCAN: core point density
+  reduce_outliers: true        # Re-assign outlier papers to nearest cluster
+  kmeans_n_clusters: 12        # Only used when method=kmeans
+  random_state: 42
+
+# Data source: openalex / semantic_scholar
+data_source: "openalex"
+
+# Set to true to force re-fetch all data (ignores cache)
+clear_cache: false
+
+# OpenAlex credentials (overridden by .env if set)
+openalex:
+  email: ""
+  api_key: ""

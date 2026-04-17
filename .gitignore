@@ -1,0 +1,65 @@
+# ---------------------------------------------------------------------------
+# Academic Atlas — .gitignore
+# ---------------------------------------------------------------------------
+
+# Large data files — entire data/ directory is excluded
+data/
+output/
+
+# Generated HTML (datamapplot outputs)
+assets/paper_landscape*.html
+assets/test_*.html
+
+# Keep assets/screenshots/ for README images
+!assets/screenshots/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env
+
+# Model files
+*.bin
+*.pt
+*.onnx
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Secrets / credentials
+*.key
+.env.local
+secrets.json
+config.local.py
+
+# Logs
+*.log
+logs/
+
+# Claude Code internal
+.claude/
+
+# Lock file (generated)
+requirements_lock.txt

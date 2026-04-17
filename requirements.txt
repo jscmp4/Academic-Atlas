@@ -1,0 +1,33 @@
+# Research Landscape Mapping System
+# Python 3.10+ required (3.11 or 3.12 recommended)
+
+# Data fetching
+pyalex>=0.15
+python-dotenv>=1.0
+requests>=2.31
+tqdm>=4.65
+pyyaml>=6.0
+
+# Embedding
+sentence-transformers>=2.2
+torch>=2.0
+
+# Clustering & dimensionality reduction
+bertopic>=0.16
+umap-learn>=0.5
+hdbscan>=0.8
+
+# Data processing
+pandas>=2.0
+numpy>=1.24
+scikit-learn>=1.3
+scikit-image>=0.21
+
+# Visualization & web app
+plotly>=5.0
+dash>=2.14
+dash-bootstrap-components>=1.5
+kaleido>=0.2
+
+# Optional: Claude API for interpret.py
+# anthropic>=0.40

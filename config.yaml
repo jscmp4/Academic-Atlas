@@ -1,0 +1,87 @@
+version: 1
+topic: Online community dynamics, governance, user behavior, and social interaction
+  in digital platforms
+search_streams:
+- name: Community Formation and Structure
+  keywords:
+  - online community formation
+  - virtual community structure
+  - digital community emergence
+  - community membership dynamics
+  - social network formation
+  citation_min: 5
+- name: User Behavior and Participation
+  keywords:
+  - online community participation
+  - user engagement patterns
+  - community contribution behavior
+  - lurking behavior
+  - social presence online
+  citation_min: 10
+- name: Platform Governance and Moderation
+  keywords:
+  - community governance mechanisms
+  - online moderation systems
+  - platform governance
+  - community rules enforcement
+  - self-governance communities
+  citation_min: 8
+- name: Social Capital and Network Effects
+  keywords:
+  - online social capital
+  - community social networks
+  - digital social ties
+  - virtual community benefits
+  - online relationship building
+  citation_min: 12
+journals:
+  IS_core:
+  - MIS Quarterly
+  - Information Systems Research
+  - Journal of Management Information Systems
+  IS_extended:
+  - Information & Management
+  - Decision Support Systems
+  - Computers in Human Behavior
+  - International Journal of Information Management
+  management:
+  - Management Science
+  - Organization Science
+  - Academy of Management Journal
+  - Strategic Management Journal
+  CS_HCI:
+  - Computer Supported Cooperative Work
+  - ACM Transactions on Computer-Human Interaction
+  - International Journal of Human-Computer Studies
+  communication:
+  - Journal of Computer-Mediated Communication
+  - New Media & Society
+  - The Information Society
+  sociology:
+  - American Journal of Sociology
+  - Social Networks
+  - Information Communication & Society
+filters:
+  citation_min: 5
+  year_min: 2000
+  year_max: 2026
+  doc_type: article
+embedding:
+  model: minilm
+clustering:
+  method: bertopic
+  n_neighbors: 15
+  n_components_cluster: 5
+  n_components_viz: 2
+  min_dist_cluster: 0.0
+  min_dist_viz: 0.1
+  min_cluster_size: 10
+  min_samples: 5
+  reduce_outliers: true
+  kmeans_n_clusters: 12
+  random_state: 42
+data_source: openalex
+clear_cache: true
+openalex:
+  email: ''
+  api_key: ''
